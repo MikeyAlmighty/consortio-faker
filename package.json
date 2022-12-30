@@ -1,0 +1,25 @@
+{
+  "name": "consortio-faker",
+  "version": "1.0.0",
+  "description": "Fake data generator for consortio-api models",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "gen:brand": "node index.js brand",
+    "gen:influencer": "node index.js influencer",
+    "gen:product": "node index.js product"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeyAlmighty/consortio-faker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeyAlmighty/consortio-faker/issues"
+  },
+  "homepage": "https://github.com/MikeyAlmighty/consortio-faker#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
+}
