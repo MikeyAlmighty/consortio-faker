@@ -2,7 +2,7 @@
 
 Fake data generator for [Consortio-API](https://github.com/MikeyAlmighty/consortio-api) models.
 
-![Joker](docs/joker.jpg)
+![Joker](docs/generator.jpg)
 
 ## Setup
 
@@ -10,6 +10,6 @@ Fake data generator for [Consortio-API](https://github.com/MikeyAlmighty/consort
 
 ## Generation
 
-To generate an influencer: `npm run gen:influencer`
-To generate a brand: `npm run gen:brand`
-To generate a product: `npm run gen:product`
+- To generate an influencer: `npm run gen:influencer`
+- To generate a brand: `npm run gen:brand`
+- To generate a product: `npm run gen:product`
