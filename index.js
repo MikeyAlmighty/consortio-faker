@@ -5,7 +5,6 @@ const PORT_ARG = process.argv[3]
 
 const fireRequest = (generated, service) => {
   const PORT = !PORT_ARG ? 8000 : PORT_ARG
-  console.log(service === 'brands')
   const route = service === 'brands' ? `http://localhost:${PORT}` : `http://localhost:${PORT}/${service}`
      fetch(route, {
       method: 'POST',
