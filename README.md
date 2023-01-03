@@ -10,6 +10,8 @@ Fake data generator for [Consortio-API](https://github.com/MikeyAlmighty/consort
 
 ## Generation
 
-- To generate an influencer: `npm run gen:influencer`
-- To generate a brand: `npm run gen:brand`
-- To generate a product: `npm run gen:product`
+`PORT` is an optional arg (defaults to `8000`)
+
+- To generate an influencer: `npm run generate influencer ?{PORT}`
+- To generate a brand: `npm run generate brand ?{PORT}`
+- To generate a product: `npm run generate product ?{PORT}`

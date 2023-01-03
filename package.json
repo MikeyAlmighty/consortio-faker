@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "gen:brand": "node index.js brand",
-    "gen:influencer": "node index.js influencer",
-    "gen:product": "node index.js product"
+    "generate": "node index.js"
   },
   "repository": {
     "type": "git",

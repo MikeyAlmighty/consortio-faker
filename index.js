@@ -1,6 +1,26 @@
 import { faker } from '@faker-js/faker';
 
-const model = process.argv[2]
+const MODEL = process.argv[2]
+const PORT_ARG = process.argv[3]
+
+const fireRequest = (generated, service) => {
+  const PORT = !PORT_ARG ? 8000 : PORT_ARG
+  console.log(service === 'brands')
+  const route = service === 'brands' ? `http://localhost:${PORT}` : `http://localhost:${PORT}/${service}`
+     fetch(route, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(generated)
+    })
+      .then(() => {
+        console.info('Added!')
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+}
 
 const generateInfluencer = () => {
   const firstName = faker.name.firstName()
@@ -9,16 +29,16 @@ const generateInfluencer = () => {
   const generated = {
     firstName,
     lastName,
-    handle: faker.internet.userName(firstName, lastName),
     posts: faker.random.numeric(),
     clicks: faker.random.numeric(),
     socialDetails: {
+      handle: faker.internet.userName(firstName, lastName),
       email: faker.internet.email(firstName, lastName),
       instagram: faker.internet.url(),
     }
   }
 
-  console.log(generated)
+  fireRequest(generated, 'influencers')
 }
 
 const generateBrand = () => {
@@ -26,22 +46,23 @@ const generateBrand = () => {
      name: faker.company.name(),
      origin: faker.address.country(),
      active: faker.datatype.boolean(),
-     inceptionDate: faker.datatype.datetime(),
-     IPR: 'Trademark'
+     incorporationDate: faker.datatype.datetime(),
+     IPR: 'PATENT'
    }
 
-  console.log(generated)
+  fireRequest(generated, 'brands')
 }
 
 const generateProduct = () => {
   const generated = {
-    name: faker.commerce.productName()
+    name: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
   }
 
-  console.log(generated)
+  fireRequest(generated, 'products')
 }
 
-switch (model) {
+switch (MODEL) {
   case 'influencer':  {
     generateInfluencer()
     break
